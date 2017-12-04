@@ -1,0 +1,48 @@
+<!--pages/order/addOrder/index.wxml-->
+<!-- 选择收货地址 -->
+<view class='addAddress'>
+   <navigator url='/pages/address/addressList/index?address_id={{address_id}}'>
+   <view class='box'>
+      <image src='/imgs/add_icon.png'></image>
+      <text class='word'>{{addr}}</text>
+      <text class='arrow'>></text>
+       <!-- bindtap='choseAddress' -->
+   </view>
+   </navigator>
+    <view class='box line'>
+      <image src='/imgs/time_icon.png'></image>
+      <text class='word time'>立即送出(大约{{hour}} ： {{sendTime}}送达）</text>
+      <!-- <text class='arrow'>></text> -->
+   </view>
+</view><!--addAddress结束-->
+<!-- 点餐内容 -->
+<view class='foodBox' >
+   <block wx:for="{{typeList}}" wx:key="">
+   <!-- <view wx:if="{{item.flag!=0}}"> -->
+    <view class='food'>
+        <view class='img'><image src='{{webSite}}{{item.img}}'></image></view>
+        <view class='name'>
+            <text>{{item.dish_name}}</text>
+            <text class='number'>x{{item.flag}}</text>
+        </view>
+        <view class='price'>￥{{item.total}}</view>
+    <!-- </view> -->
+    </view><!--food-->
+    </block>
+</view><!--foodBox结束-->
+<!-- 餐盒费，配送费 -->
+<view class='fee'>
+    <view >
+        餐盒费
+        <text>￥{{fee}}</text>
+    </view>
+    <view class='send'>
+        配送费
+        <text>￥{{sendFee}}</text>
+    </view>
+</view>
+<!-- 提交订单 -->
+<view class="submitOrder">
+   <view class='sumPrice'>合计<text>￥{{totalPrice}}</text></view>
+   <view class='order' bindtap='submitOrder'>提交订单</view>
+</view>

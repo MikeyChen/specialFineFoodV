@@ -1,0 +1,39 @@
+/* pages/address/addressList/index.wxss */
+page{background: #efefef;font-size:28rpx;}
+.addAddress{font-size:28rpx;margin:20rpx 0;background: #fff;}
+.addAddress image{width:50rpx;height:50rpx;}
+.addAddress .box{display: flex;padding:25rpx;position: relative;}
+.addAddress .box text.arrow{text-align: right;position: absolute;top:33rpx;right:61rpx;}
+.addAddress .box .word{display:flex;justify-content: center;margin-left:3%;position: relative;top:8rpx;}
+.addAddress .line{border-top:1px solid #e5e5e5;}
+.addAddress .line .time{color:#228bf4}
+/* 地址列表 */
+.list{background: #fff;width:91.9%;padding:0 4%;font-size:28rpx;color:#333;border-top:1px solid #dadada;border-bottom:1px solid #dadada;}
+.list .address{padding:15rpx 0rpx;position: relative;border-bottom:1px solid #dadada;padding-left:9%;}
+.list .address icon{position: absolute;top:29rpx;left:0%;}
+.list .address view:first-child{margin-bottom:10rpx;}
+.list .address:last-child{border-bottom:none;}
+.list .address .img{position: absolute;top:34rpx;right:0rpx;color:#7be22a}
+.list .address .del{right:70rpx;}
+.list .address .img image{width:48rpx;height:48rpx;}
+/* 确定按钮 */
+.btn{width:100%;background:#7be22a;padding:25rpx;text-align: center;color:#fff;position: absolute;left:0;bottom: 0;font-size:32rpx;z-index: 50;}
+
+
+
+/***************************************************************/
+.isHide{position: absolute;top:-100%;left:-100%;}
+.isShow{position: absolute;top:0%;left:0%;}
+form{width:100%;}
+.contacts{padding:20rpx 3%;width:94%;background: #f6f6f6;}
+/* 收货人信息 */
+.info{background: #fff;border-top:1px solid #b3b3b3;border-bottom:1px solid #b3b3b3;}
+.info view{padding:30rpx 0;margin:0 4%;}
+.info view.sex{border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;}
+.info input{display: inline-block;overflow: visible;}
+.info view.sex .radio:first-child{margin-right:10%;}
+.info view.card{border-top:1px solid #E8E8E8;}
+/* 确定按钮 */
+.btn{width:100%;background:#7be22a;padding:25rpx;text-align: center;color:#fff;position: fixed;left:0;bottom: 0;font-size:32rpx;}
+#address input{display: block;margin-top:24rpx;}
+.btn-area button{background-color:#7be22a;border-radius: 0;position: fixed;left:0;bottom: 0;color:#fff;width:100%;z-index: 20;}

@@ -1,0 +1,17 @@
+<!--pages/me/refund/index.wxml-->
+<view class="refund">
+    <input type="number"  disabled='true' value='￥{{price}}'/>
+    <!-- placeholder="退款金额:{{price}}最大金额为￥258.00" -->
+     <input class="tui" type="text" placeholder="退款原因:请简单描述您的退款原因" bindinput='bindInput'/> 
+    <view class="tips">温馨提示：输入退款金额后请耐心等待客服为您处理，为更好的方便跟进，期间请保持手机通畅。</view>
+    <view class="foot" bindtap="refund">
+        确认申请
+    </view>
+</view><!--refund-->
+ <view class="{{className}}"  >
+        
+  </view>
+     <view class="show {{on}}" style="width:{{width}}px;height:{{height}}px;left:{{left}}px">
+       <text>申请成功</text>
+       <text>将在{{second}}秒后自动跳转</text>
+    </view>

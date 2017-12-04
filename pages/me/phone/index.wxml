@@ -1,0 +1,15 @@
+<!--pages/me/phone/index.wxml-->
+<view class='tips'>
+    <image src='/imgs/warn.png'> </image>
+    <view>为保证配送员能及时联系你，请验证你的账号绑定手机号</view>
+</view>
+<view class='inputBox'>
+   <input type='text' placeholder='请填入要绑定的手机号' /> 
+   <view class="btn {{second==0?'btnGreen':''}}">重新获取<text>({{second}})</text></view>
+</view>
+<view class='inputBox noneBorder'>
+   <input type='text' placeholder='请填入验证码' /> 
+</view>
+<view class='submitBtn' bindtap='submit'>
+    提交
+</view>

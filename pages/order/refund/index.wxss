@@ -1,0 +1,14 @@
+/* pages/me/refund/index.wxss */
+page{background:#f2f2f2;}
+.refund{background: #f2f2f2;padding:20px 0;height: 100%;font-size:32rpx;position: relative;}
+.refund input{margin:0 20px;background:#fff;height:86rpx;text-align: center;border-radius: 8rpx;box-shadow: 0px 2px 1px #777;}
+.refund input.tui{margin-top:15px;}
+.refund .tips{margin-top:15px;padding:15px;color:#dedede;}
+.refund .foot{height:102rpx;color:#fff;position:fixed;bottom:0;width:100%;text-align:center;line-height: 102rpx;font-size: 32rpx;
+box-shadow:0px 1px 5px #888888;box-shadow: 0 -2px 0 #d7d7d7; background: #7be22a; }
+.model1{width:100%;position:absolute;top:0;bottom:0;left:0;right:0;background:#000;opacity:0.4;z-index: 4;}
+.show{width:300px;height: 100px;background: #fff;position: absolute;top:25%;z-index: 10;border-radius: 8px;display: flex;
+justify-content: center;align-items: center;display: none;text-align: center;line-height: 100px; padding-top:30px;box-shadow: 0px 2px 1px #777;color:#7be22a;font-size:28rpx;}
+.on{display: block;}
+.none{display: none;}
+.show text{display:block;height:30px;line-height: 30px;color:#7be22a;}

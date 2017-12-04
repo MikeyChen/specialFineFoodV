@@ -1,0 +1,40 @@
+<!--pages/order/orderDetail/index.wxml-->
+<view class='top_img'>
+  <image src='/imgs/circle_1.jpg'></image>
+</view>
+<view class='info'>
+   <view>炒拉面</view>
+   <view class='del'>主菜210g+时蔬+咸菜+米饭咸菜+米饭</view> 
+   <view class='price'>￥22.5</view>
+   <view class='btn'>
+        <!-- <text class='line'></text> -->
+        <text class='reduce' bindtap="reduce">-</text>
+        <text class='num'>{{num}}</text>
+        <text class='add' bindtap="add">+</text>
+   </view>  
+</view>
+
+<!-- 点击购物车的提示框 -->
+<view class='cartTip {{show}}' >
+    <view class='foodName'>
+        <text class='l'>杀猪菜</text><text class='r price'>￥{{sum}}</text>
+        <view class='btn'>
+                <text class='reduce' bindtap="reduce">-</text>
+                <text class='num'>{{num}}</text>
+                <text class='add' bindtap="add">+</text>
+        </view>  
+    </view>
+    <view><text class='l'>餐盒费</text><text class='r'>￥1</text></view>
+</view><!--cartTip-->
+<!-- 遮罩层 -->
+<view class='shade {{shadeShow}}' style='height:{{height}}px;width:{{width}}px' bindtap="hidCart"></view>
+
+<!-- 底部购物车 -->
+<view class='cart'>
+    <view class='imgBox'>
+      <image src='/imgs/shop_logo.png' bindtap="bindImg"></image>
+      <text class='red'>{{num}}</text>
+    </view>
+    <view class='l'>￥{{sum}}</view>
+    <view class="r {{num>0?'noOpcatity':''}}" bindtap="account">去结算</view>
+</view>

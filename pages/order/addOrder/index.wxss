@@ -1,0 +1,26 @@
+/* pages/order/addOrder/index.wxss */
+page{background: #efefef;}
+.addAddress{font-size:28rpx;margin:20rpx 3%;background: #fff;}
+.addAddress image{width:50rpx;height:50rpx;}
+.addAddress .box{display: flex;padding:25rpx;position: relative;}
+.addAddress .box text.arrow{text-align: right;position: absolute;top:25rpx;right:25rpx;}
+.addAddress .box .word{display:flex;justify-content: center;margin-left:3%;position: relative;top:8rpx;}
+.addAddress .line{border-top:1px solid #e5e5e5;}
+.addAddress .line .time{color:#228bf4}
+/* 点餐内容 */
+.foodBox{margin:20rpx 3%;background: #fff;font-size:28rpx;}
+.foodBox .food{display: flex;flex-direction: row;position: relative;background: #f8f8f8;padding:20rpx;margin-top:20rpx;border-radius: 10rpx;}
+.foodBox .food image{width:100%;height:124rpx;}
+.foodBox .food .img{width:30%;height:100%;margin-right:2%;}
+.foodBox .food .name .number{color:#F80000}
+.foodBox .food .name text{display: block;}
+.foodBox .food .price{position: absolute;right:20rpx;top:20rpx;}
+/* 餐盒费，配送费 */
+.fee{background: #fff;margin:20rpx 3%;font-size:28rpx;border-radius: 10rpx;padding:30rpx 25rpx;margin-bottom:150rpx;}
+.fee view{position: relative;}
+.fee view.send{margin-top:15rpx;border-top:1px solid #efefef;padding-top:15rpx;}
+.fee view text{position: absolute;right:20rpx;top:5rpx;color:#F80000;}
+/* 提交订单 */
+.submitOrder{width:80%;padding:28rpx 10%;background: #888;position: fixed;bottom:0;left:0;font-size:28rpx;color:#fff;}
+.submitOrder .sumPrice text{color:#F80000;font-size:36rpx;}
+.submitOrder .order{position: absolute;right:0;top:0;background:#7be22a;padding:34rpx 70rpx; }

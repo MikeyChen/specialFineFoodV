@@ -1,0 +1,72 @@
+<!--index.wxml-->
+<view class='{{box}}'>
+<!-- 轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:142px;'>
+  <block wx:for="{{imgUrls}}" wx:key="">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 附近商家 -->
+<view class='sell'>
+  <view class='sell_box'>
+    <text class='lLine'></text>
+    <text class='text'>附近商家</text>
+    <text class='rLine'></text>
+  </view>
+</view>
+<!-- 商家列表 -->
+<view class='shopList'>
+<!-- shop.isOpen=1关门  已关门 -->
+<block wx:for="{{shopList}}" wx:key="" wx:for-item="shop">
+   <view wx:if="{{shop.isOpen==1}}" class='shop close'data-id="{{shop.id}}" data-img="{{shop.img}}" data-name="{{shop.store_name}}" data-begin_price="{{shop.begin_price}}" data-packing_fee="{{shop.packing_fee}}" bindtap='closeTip'>
+     <view class='l'>
+         <image src='/imgs/flower1.png' class='flower'></image>
+         <image src='{{webSite}}{{shop.img}}'></image>
+     </view>
+     <view class='r'>
+        <text class='word'>{{shop.store_name}}</text>
+        <view class='grey'></view>
+        <view class='dis add_box'>
+         {{shop.address}}
+        </view>
+        <view class='dis'>
+          <text>距离：</text>
+          <text>{{shop.distance}}km</text>
+        </view>
+     </view> 
+    
+   </view>
+   <!-- shop.isOpen=0关门 正常营业 -->
+  <view wx:if="{{shop.isOpen==0}}" class='shop' bindtap='jump' data-id="{{shop.id}}" data-img="{{shop.img}}" data-name="{{shop.store_name}}" data-begin_price="{{shop.begin_price}}" data-packing_fee="{{shop.packing_fee}}">
+     <view class='l'>
+         <image src='/imgs/flower1.png' class='flower'></image>
+         <image src='{{webSite}}{{shop.img}}'></image>
+     </view>
+     <view class='r'>
+        <text class='word'>{{shop.store_name}}</text>
+        <view class='grey'></view>
+        <view class='dis add_box'>
+         {{shop.address}}
+        </view>
+        <view class='dis'>
+          <text>距离：</text>
+          <text>{{shop.distance}}km</text>
+        </view>
+     </view> 
+    
+   </view><!--shop-->
+   </block>
+</view><!--shopList-->
+
+<!-- 
+打烊提示 -->
+<view class='{{model}} {{hid}}' ></view>
+ <view class='closeTip' style='top:{{top}}px;display:{{none}}'>
+    <image src='/imgs/tip.jpg' class='front'></image>
+    <view class='close' bindtap='close'> <image src='/imgs/close.png'></image></view>
+</view> 
+
+</view>

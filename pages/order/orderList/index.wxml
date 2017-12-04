@@ -1,0 +1,46 @@
+<!--pages/order/orderList/index.wxml-->
+<!-- 导航栏 -->
+<view class='orderType'>
+<!-- // 0 待付款 1 配送中 2退款中 3 已完成
+        -->
+    <text class="{{active==0?'on':''}}" data-active="0" bindtap="orderNavClick">全 部</text>
+    <text class="{{active==1?'on':''}}" data-active="1" bindtap="orderNavClick">待付款</text>
+    <text class="{{active==2?'on':''}}" data-active="2" bindtap="orderNavClick">配送中</text>
+    <text class="{{active==3?'on':''}}" data-active="3" bindtap="orderNavClick">已完成</text> 
+    <text class="{{active==4?'on':''}}" data-active="4" bindtap="orderNavClick">退款中</text>
+    <view class="{{animation}}"></view> 
+</view>
+<!-- 订单列表 -->
+<view class='orderList'>
+   <block wx:for="{{orderList}}" wx:key="" wx:for-item="order"> 
+  
+    <view class='order'>
+        <view class='orderInfo'>
+            <view class='name'>{{order.dishData[0].store_name}}<text>{{order.status}}</text></view>
+            <view class='time'>下单时间 : {{order.date}}</view>
+        </view>
+        <block wx:for="{{order.dishData}}" wx:key="" wx:for-item="order1">
+         <view class='img'>
+            <image src='{{webSite}}{{order1.img}}'></image>
+            <view class='price'>{{order1.dish_name}}</view> 
+            <view class='price red'>x{{order1.flag}}</view>
+            <view class='price total red'>￥{{order1.total}}</view> 
+        </view>
+         </block>  
+        
+        <view class='btns'>
+                  <!-- <view wx:if="{{length > 5}}"> 1 </view>
+                  <view wx:elif="{{length > 2}}"> 2 </view>
+                  <view wx:else> 3 </view> -->
+            <view wx:if="{{order.status=='已完成'||order.status=='退款中'}}" class='again' bindtap='again'> 再来一单</view>
+            <view wx:if="{{order.status=='待付款'}}" bindtap='pay'  data-allPrice="{{order.allPrice}}" data-orderid="{{order.orderid}}" >立即付款</view>
+            <view wx:if="{{order.status=='配送中'}}" bindtap='refund'  data-sum="{{order.sum}}" data-orderid="{{order.orderid}}">申请退款</view>
+        </view>
+    </view><!--order结束-->
+    </block>   
+</view><!--orderList-->
+
+<view class="{{empty}}" style='margin-top:{{height}}rpx' >
+ <image src='/imgs/empty.png'></image>
+ <view bindtap="goIndex">暂无订单,快去下单吧！</view>
+</view>

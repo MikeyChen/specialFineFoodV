@@ -1,0 +1,35 @@
+<!--pages/me/index/index.wxml-->
+<view class="me_index">
+    <view class="box">
+        <image src="/imgs/top1.jpg"></image>
+    </view>
+    <view class="userImg">
+       <image src="{{userImage}}"></image>
+       <view>{{userName}}</view>
+    </view><!--userImg结束-->
+    <view class="order">
+       <view class="myOrder">
+          <view class='all' data-url='../../order/index/index?status=0' bindtap='clickJudge'><text>我的订单</text><text class="rt">></text></view>
+       </view>
+    </view><!--order结束-->
+    <view class="score">
+       <!-- <navigator url="/pages/order/addOrder/index" >
+              <view class='nav'>
+                  <text>我的购餐车</text>
+                  <text class="ft">></text>
+              </view>
+       </navigator>   -->
+        <navigator url="/pages/address/addressList/index">
+                <view class='nav'>
+                    <text class='myScore'>我的地址</text>
+                    <text class="ft">></text>
+                  </view> 
+        </navigator>   
+     </view><!--score结束-->
+      <!-- <view class="phone nav" >
+          <navigator url=""> 
+             <text>帮助与反馈</text>
+             <text class="ft">></text> 
+         </navigator> 
+    </view>phone结束  -->
+</view><!--me_index结束-->

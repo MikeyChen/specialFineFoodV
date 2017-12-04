@@ -1,0 +1,36 @@
+/* pages/order/orderList/index.wxss */
+/* 订单导航 */
+page{background: #f5f5f5;}
+.orderType{background: #fff;border-radius: 8rpx;box-shadow: 0px 0px 3px 1px #ddd; border-radius: 3px; width: 99%; margin: 3px auto 0; position: relative;}
+.orderType text{width:20%;display: inline-block;text-align: center;color:#000;font-size:28rpx;font-family: "微软雅黑"; padding: 25rpx 0; position: relative;z-index: 12;}
+.orderType text.on{color:#fff;}
+.orderType .animation0{position: absolute;left:0%;top:0;background:#7be22a;width:20%;height:100%;transition:all 0.3s ease-in-out;border-radius: 4px;}
+.orderType .animation1{position: absolute;left:20%;top:0;background:#7be22a;width:20%;height:100%;transition:all 0.3s ease-in-out;border-radius: 4px;}
+.orderType .animation2{position: absolute;left:40%;top:0;background:#7be22a;width:20%;height:100%;transition:all 0.3s ease-in-out;border-radius: 4px;}
+.orderType .animation3{position: absolute;left:60%;top:0;background:#7be22a;width:20%;height:100%;transition:all 0.3s ease-in-out;border-radius: 4px;}
+ .orderType .animation4{position: absolute;left:80%;top:0;background:#7be22a;width:20%;height:100%;transition:all 0.3s ease-in-out;border-radius: 4px;} 
+/* 订单列表 */
+.orderList{font-size:28rpx;margin-top:20rpx;background: #fff;}
+.orderList .order{display: flex;flex-direction: column;border-bottom:1px solid #ebebeb;width:91.5%;padding:30rpx 4%;position: relative;padding-bottom:80rpx;}
+.orderList .order .info{border:1px solid red;}
+.orderList .order .img{position:relative;}
+.orderList .order image{width:120rpx;height:120rpx;position: absolute;top:0;left:0;}
+.orderList .order .time{color:#949494;margin:10rpx 0;}
+.orderList .order .price{color:#949494;margin-left:150rpx;}
+.orderList .order .red{color:red;}
+.orderList .order .total{margin-bottom:15px;}
+.orderList .order .name text{position: absolute;right:4%;top:20rpx;display: block;color:#7be22a;font-weight: bold;}
+.orderList .order .btns{position: relative;}
+.orderList .order .btns view{border:1px solid #7be22a;border-radius: 8rpx;color:#7be22a;text-align: center;padding:8rpx 0;width:20%;position: absolute;right:0;top:0;}
+/* .orderList .order .btns view:first-child{right:25%;}
+.orderList .order .btns view:last-child{right:50%;} */
+/* .orderList .order .btns .hid{display: none}
+.orderList .order .btns .show{display: block  }
+.orderList .order .btns .refund{display: block;right:0  } */
+
+
+
+.empty_box{display: none;}
+.empty_box1{text-align: center;}
+.empty_box1 image{width:100rpx;height:100rpx;}
+.empty_box1 view{margin-top:30rpx;color:#999;font-size:32rpx;}

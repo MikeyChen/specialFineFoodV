@@ -1,0 +1,23 @@
+<!--pages/shop/index.wxml-->
+<view class='bg'>
+  <image src='/imgs/shop_bg.jpg'></image>
+</view>
+<view class='form'>
+   <view class='name'><image src='/imgs/name.png'></image><input type='text' placeholder='姓名' bindinput='name'/></view>
+   <view class='name'><image src='/imgs/phone.png'></image><input type='number' placeholder='电话' bindinput='phone'/></view>
+   <view class='name'><image src='/imgs/message.png'></image><input type='text' placeholder='留言'bindinput='message'/></view>
+   <view class='btn' bindtap='submit'>提交申请</view>
+</view>
+
+
+
+
+<view class="{{className}}" style="width:'{{winWidth}}';height:'{{winHeight}}'">   
+    </view>
+<view class='shows'>
+        <view class="show {{on}}">
+          <text>提交成功</text>
+          <text>将在{{second}}秒后自动跳转</text>
+        </view>
+     </view>
+

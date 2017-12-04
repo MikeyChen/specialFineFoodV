@@ -1,0 +1,115 @@
+<view class='all'>
+  <view class='header'>
+     <view class='img'>
+         <image src='{{webSite}}{{logoImg}}'></image> 
+        <!-- <image src='/imgs/food1.jpg'></image> -->
+    </view>
+    <view class='shop_info'>
+        <view class='name'>{{store_name}}</view>
+        <view class='tip'>起送￥{{begin_price}} |  配送￥{{packing_fee}}</view>
+        <view  class='notice'><text class='word'>欢迎光临{{store_name}}</text></view>
+        <!-- <image src='/imgs/tips.gif'></image>： -->
+    </view>
+  </view>
+  <view style='clear:both;'></view>
+  <view class='main'>
+        <view class='left' >
+          <block wx:for="{{foodList}}" wx:key=""> 
+               <view class="pub {{colorNum==index?'bgWhite':''}}" bindtap='click' data-num="{{index}}" data-id="{{item.id}}" data-name="{{item.category_name}}">{{item.category_name}}
+               </view>
+          </block>
+      </view>
+      <view class='right'>
+            <scroll-view scroll-y style="height: 100%;" scroll-into-view="{{toView}}">
+              <block wx:for="{{foodList}}" wx:key="" wx:for-item="food">  
+              <view class='foodDetail scroll-view-item' id="{{food.id}}">
+               <view class='type'>{{food.category_name}}</view>
+                <view class='box'>
+                    <block wx:for="{{food.child}}" wx:key="" wx:for-item="dish">
+                        <view class='food' >
+                            <view class='img' bindtap='showDetail' data-img="{{dish.img}}" data-name="{{dish.dish_name}}" data-price="{{dish.price}}" data-info="{{dish.backup}}">
+                                <image src='{{webSite}}{{dish.img}}'></image>
+                            </view>
+                            <view class='info'  bindtap='showDetail' data-img="{{dish.img}}" data-name="{{dish.dish_name}}" data-price="{{dish.price}}" data-info="{{dish.backup}}">
+                                <view class='name'>{{dish.dish_name}}</view>
+                                <view class='ct'>{{dish.backup}}</view>
+                                <view class='price'>￥{{dish.price}}/份</view>
+                            </view>
+                            <view class='btn'>
+                              <!-- <text class='line'></text> -->
+                              <text class='reduce' bindtap="reduce"  data-id="{{dish.dish_id}}" data-index="{{index}}">-</text>
+                              <text class='num'>{{dish.flag}}</text>
+                              <text class='add' bindtap="add"  data-id="{{dish.dish_id}}" data-index="{{index}}">+</text>
+                            </view>      
+                        </view><!--food结束-->
+                    </block>
+                 
+                </view><!--box-->
+          </view><!--foodDetail-->
+              </block>
+            </scroll-view>
+      </view>
+  </view>
+  <!-- <view class='bottom'></view> -->
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 点击购物车的提示框 -->
+<view class='cartTip {{show}}' >
+
+    <block wx:for="{{foodList}}" wx:key="">
+    <block  wx:for="{{item.child}}" wx:key="" wx:for-item="dish">
+    <view wx:if="{{dish.flag!=0}}">
+    <view class='foodName'>
+        <text class='l'>{{dish.dish_name}}</text><text class='r price'>￥{{dish.total}}</text>
+        <view class='btn'>
+                <text class='reduce' bindtap="reduce"  data-index="{{index}}" data-id="{{dish.dish_id}}">-</text>
+                <text class='num'>{{dish.flag}}</text>
+                <text class='add' bindtap="add"  data-index="{{index}}" data-id="{{dish.dish_id}}">+</text>
+        </view>  
+        </view>
+    </view>
+    </block>
+    </block>
+    
+    <view><text class='l'>餐盒费</text><text class='r'>￥{{fee}}</text></view>
+     <view><text class='l'>配送费</text><text class='r'>￥{{packing_fee}}</text></view>
+    
+</view><!--cartTip-->
+<!-- 遮罩层 -->
+<view class='shade {{shadeShow}}' style='height:{{height}}px;width:{{width}}px' bindtap="hidCart"></view>
+
+<!-- 底部购物车 -->
+<view class='cart'>
+    <view class='imgBox'>
+      <image src='/imgs/shop_logo.png' bindtap="bindImg"></image>
+      <text class='red'>{{allNum}}</text>
+    </view>
+    <view class='l'>￥{{totalPrice}}</view>
+    <button class="{{allNum>0?'noOpcatity':''}}"  bindtap="account" data-all="{{totalPrice}}" disabled="{{allNum>0?'':'kk'}}">去结算</button>
+</view>
+</view>
+
+
+
+<!-- 详情 -->
+<view class="{{className}}" bindtap='model' >
+  
+</view>
+<view class='detail {{appear}}'bindtap='model' >
+   <view class='img'>
+     <image src='{{webSite}}{{detailImg}}'></image>
+   </view>
+   <view>{{detailName}}</view>
+   <view class='price'>￥{{detailPrice}}</view>
+   <view>{{detailInfo}}</view>
+</view>
+     

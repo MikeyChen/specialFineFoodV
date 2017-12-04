@@ -1,0 +1,53 @@
+<!--pages/address/addressList/index.wxml-->
+<view style='width:100%;'>
+<view class='addAddress'>
+   <view class='box' bindtap='addAddr' data-obj="">
+      <image src='/imgs/add_icon.png'></image>
+      <text class='word'>新增收货地址</text>
+      <text class='arrow'>></text>
+   </view>
+</view><!--addAddress结束-->
+<view class='list'>
+  <block wx:for="{{addressList}}" wx:key="" wx:for-item="address">
+    <view class='address' >
+       <icon  type="success" color="{{address.id==id?green:grey}}"  bindtap='selected' data-id="{{address.id}}"/>
+        <view>{{address.address}} {{address.street}}</view>
+        <view>{{address.name}} {{address.sex}} {{address.phone}}</view>
+        <view class='img del' bindtap='delAddr' data-obj="{{address}}" data-id="{{address.id}}">删除</view>
+        <!-- <image src='/imgs/edit_icon.png' ></image> -->
+        <view class='img' bindtap='editAddr' data-obj="{{address}}">修改</view>
+    </view><!--address-->
+  </block>
+</view><!--list-->
+<view class='btn' bindtap='confirm' style='display:{{none}};'>
+  确定
+</view>
+</view>
+<!--------------------------------------------------->
+<!--pages/address/editAddress/index.wxml-->
+ <form bindsubmit="formSubmit" class="{{isHide}}">
+<view class='contacts'>联系人</view>
+<!-- 联系人信息 -->
+ <view class='info'>
+    <view class='name'>姓名：<input type='text' placeholder='请输入姓名' value="{{address.name}}" name="name"/></view>
+    <view class='sex'>
+      <radio-group name="sex">
+        <label><radio value="0" checked="{{address.sex=='先生'?true:false}}"/>先生</label>
+        <label><radio value="1" checked="{{address.sex=='女士'?true:false}}"/>女士</label>
+     </radio-group>
+    </view><!--sex结束-->
+    <view class='phone'>手机：<input type='number' placeholder='请输入收货手机号码' value="{{address.phone}}" name="phone"/></view>
+</view><!--info-->
+ <view class='contacts'>收货地址</view>
+<view class='info' id='address'>
+    <view class='name'>小区/大厦/学校<input type='text' placeholder='请输入地址' value='{{address.address}}' name="address" /></view>
+    <view class='phone card'>楼号/门牌号<input type='text' placeholder='例如：16号楼417室' value="{{address.street}}" name="street"/></view>
+</view><!--info-->
+
+  <view class="btn-area" style='display:{{hid}}'>
+    <button formType="submit">提交</button>
+  </view> 
+</form>  
+
+
+

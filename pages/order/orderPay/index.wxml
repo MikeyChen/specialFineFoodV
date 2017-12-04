@@ -1,0 +1,50 @@
+<!--pages/hotel/order_pay/index.wxml-->
+<view class='all'>
+  <!--主体-->
+  <view class='main'>
+    <!--主体第一块-->
+    <view class='main1'>
+      <image src='../../../imgs/bg.png'></image>
+      <view class='block'>
+        <text>￥{{sum}}</text>
+      </view>
+    </view>
+    <!--主体第二块-->
+    <view class='main2'>
+      <view class='left'>
+        <image src='../../../imgs/25.png' mode='widthFix'></image>
+      </view>
+      <view class='left1'>微信支付</view>
+      <view class='right'>
+        <radio bindtap='clickChecked' checked='{{checked}}'></radio>
+      </view>
+    </view>
+    <!--主体第三块-->
+    <view class='main3'>
+      <view class='main3_1 center'>
+        <view class='p'>
+          <text>支付说明：</text>
+        </view>
+        <view class='p'>
+          <text>1. 可能是您的支付宝当日已超过支付限额。支付宝每日的交易限额只限5000元，如果您当日支付宝的交易量已经超过了支付限额，将无法支付成功。</text>
+        </view>
+        <view class='p'>
+          <text>2. 可能是由于您支付宝的余额不足，还请您根据系统提示查看下具体原因再次操作付款。</text>
+        </view>
+        <view class='p'>
+          <text>3. 如果在交易高峰时段付款不成功，建议您刷新页面重新尝试付款。</text>
+        </view>
+        <view class='p1'>
+          <text>如仍不能解决您的问题，请尽快联系支付宝客服。</text>
+        </view>
+      </view>
+    </view>
+    <!--主体第四块-->
+    <view class='main4'>
+    </view>
+    <!--主体第四块-->
+    <view class='main4'>
+        <button bindtap="switchTab" class='payment {{active}}'>立即支付</button>
+    </view>
+  </view>
+</view>
