@@ -131,6 +131,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log("总价");
     that.setData({
       totalPrice:options.total,
       fee:options.fee,
