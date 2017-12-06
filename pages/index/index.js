@@ -51,7 +51,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     var img = e.currentTarget.dataset.img;
     var name = e.currentTarget.dataset.name;
-    var begin_price = e.currentTarget.dataset.begin_price;
+    var begin_price = Number(e.currentTarget.dataset.begin_price)/100;
     var packing_fee = e.currentTarget.dataset.packing_fee;
     wx.navigateTo({
       url: '/pages/order/index/index?id=' + id+'&img='+img+'&name='+name+'&begin_price='+begin_price+'&packing_fee='+packing_fee,
@@ -66,6 +66,7 @@ Page({
           width:res.windowWidth,
           top:res.windowHeight/3,
         })
+        
       },
     })
     var far;
