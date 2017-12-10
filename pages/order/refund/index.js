@@ -30,7 +30,7 @@ Page({
        url: app.globalData.webSite + '/weixin.php/wechat/refound',
        data:{
          orderid:that.data.orderid,
-         refund_reason:refund_reason
+         refund_reason:that.data.refund_reason
        },
        success:function(res){
        var data=res.data;

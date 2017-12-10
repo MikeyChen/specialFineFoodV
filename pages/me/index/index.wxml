@@ -33,3 +33,7 @@
          </navigator> 
     </view>phone结束  -->
 </view><!--me_index结束-->
+<view class='copyright'>
+    <view>技术开发服务商：昆明点度科技有限公司</view>
+    <view>Kunming point of degree</view>
+</view>

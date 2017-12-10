@@ -8,11 +8,11 @@ var qqmapsdk = new QQMapWX({
 
 Page({
   data: {
-    imgUrls: [
-      '/imgs/circle_1.jpg',
-      '/imgs/circle_2.jpg',
-      '/imgs/circle_3.jpg'
-    ],
+    // imgUrls: [
+    //   '/imgs/circle_1.jpg',
+    //   '/imgs/circle_2.jpg',
+    //   '/imgs/circle_3.jpg'
+    // ],
     webSite: app.globalData.webSite,
     shopAddress: "云南省昆明市西山区H公寓",
     indicatorDots: true,
@@ -51,7 +51,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     var img = e.currentTarget.dataset.img;
     var name = e.currentTarget.dataset.name;
-    var begin_price = Number(e.currentTarget.dataset.begin_price)/100;
+    var begin_price = e.currentTarget.dataset.begin_price;
     var packing_fee = e.currentTarget.dataset.packing_fee;
     wx.navigateTo({
       url: '/pages/order/index/index?id=' + id+'&img='+img+'&name='+name+'&begin_price='+begin_price+'&packing_fee='+packing_fee,
@@ -101,7 +101,7 @@ Page({
             method: 'POST',
             success: function (res) {
               if (res.data.code == 0) {
-                // console.log(res.data.info);
+                //console.log(res.data.info);
               }
             }
           })
@@ -114,6 +114,7 @@ Page({
       })
     }
     /////////////////////////////不能删///////////////////////////////////////
+    //请求所有店铺接口
     wx.request({
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -122,24 +123,20 @@ Page({
       url: app.globalData.webSite + '/weixin.php/wechat/getstore',
       success: function (res) {
         res.data.forEach(function (val, key) {
-          res.data[key].begin_priceAZ = res.data[key].begin_price / 100;
+          res.data[key].begin_price = res.data[key].begin_price / 100;
           res.data[key].packing_fee = res.data[key].packing_fee / 100;
           qqmapsdk.geocoder({
-            address: val.address,
-            success: function (add) {
+            address: val.address,//
+            success: function (add){
               wx.getLocation({
                 type: 'gcj02', //返回可以用于wx.openLocation的经纬度
                 success: function (map) {
-                  //console.log("oooooooooooo");
-                  //console.log(map);
-                  
-                  var latitude = map.latitude
+                  var latitude  = map.latitude
                   var longitude = map.longitude
                   that.setData({
                     latitude: latitude,
                     longitude: longitude
                   })
-                 
                   qqmapsdk.calculateDistance({
                     mode: 'driving',
                     from: {
@@ -153,7 +150,6 @@ Page({
                       },
                     ],
                     success: function (dis) {
-                      //console.log(dis);
                       var duration = (dis.result.elements[0].duration) / 60;
                       var sendTime = Math.round(duration);
                       wx.setStorage({
@@ -174,15 +170,30 @@ Page({
                     }
                   })
                 }
-              })
-              
+              })  
             },
           })
         });
-
-
-       //console.log(res.data);
       }
+    });
+    //请求轮播图接口
+    var imgUrls=[];
+    wx.request({
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'get',
+      url: app.globalData.webSite + '/weixin.php/wechat/getAdvert',
+      success: function (res) {
+          console.log("轮播图");
+          console.log(res.data.data);
+          imgUrls.push(res.data.data.img1);
+          imgUrls.push(res.data.data.img2);
+          imgUrls.push(res.data.data.img3);
+          that.setData({
+            imgUrls:imgUrls
+          })
+      },
     })
   },
 

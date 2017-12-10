@@ -59,6 +59,7 @@ App({
     userInfo: null,
     openId: '',
     loginStatus: false,
-    webSite: 'http://byu3447150001.my3w.com/'
+    webSite: 'http://www.xcwmps.com/'
+    //'http://www.xcwmps.com/'
   }
 })
